@@ -1,14 +1,24 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { TestComponent } from './components/test/test.component';
+import { IfViewportSizeDirective } from './directives/if-viewport-size.directive';
+import { ScreenSizeEnum } from './screen-size.enum';
+import { VIEWPORT_CONFIG, viewportConfig } from './viewport.config';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        TestComponent
+        TestComponent,
+        IfViewportSizeDirective
       ],
+      providers: [
+        ScreenSizeEnum,
+        {
+          provide: VIEWPORT_CONFIG, useValue: viewportConfig
+        }
+      ]
     }).compileComponents();
   }));
 

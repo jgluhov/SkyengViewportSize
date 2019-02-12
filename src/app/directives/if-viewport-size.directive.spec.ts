@@ -1,6 +1,7 @@
 import { IfViewportSizeDirective } from './if-viewport-size.directive';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Component, DebugElement } from '@angular/core';
+import { ScreenSizeEnum } from '../screen-size.enum';
 
 @Component({
   template: `
@@ -29,7 +30,6 @@ describe('IfViewportSizeDirective', () => {
   });
 
   it('should create a component with directive', () => {
-    console.log(divEl.nativeElement.children);
     expect(component).toBeTruthy();
   });
 });
