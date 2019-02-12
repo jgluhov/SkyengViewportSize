@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "docs": "ng build --base-href /SkyengViewportSize/ --output-path=docs"
+    "docs": "ng build --base-href /SkyengViewportSize/ --output-path=docs --configuration=production"
   },
   "private": true,
   "dependencies": {
