@@ -6366,9 +6366,12 @@ var ScreenService = /** @class */ (function () {
     }
     ScreenService.prototype.getScreenSize = function () {
         var _this = this;
+        // here care about change detection only when view model may actually change
+        // it prevents trigger change detection every resize event
+        // also we use share operator for sharing source
         return this.zone.runOutsideAngular(function () {
             var resize$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window, 'resize')
-                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["throttleTime"])(50), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(_this.getSize), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(_this.getSize()));
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["throttleTime"])(50), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(_this.getSize), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(_this.getSize()), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["share"])());
             return resize$;
         });
     };
