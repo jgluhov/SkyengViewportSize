@@ -24,8 +24,8 @@ export class ScreenService {
   }
 
   private getScreenSize() {
-    // here care about change detection only when view model may actually change
-    // it prevents trigger change detection every resize event
+    // here we care about change detection only when view model may actually change
+    // it prevents trigger change detection every resize event (we need only throttled resize)
     // also we use share operator for sharing source
     return this.zone.runOutsideAngular(() => {
       const resize$ = fromEvent(window, 'resize')
