@@ -32,8 +32,8 @@ export class ScreenService {
         .pipe(
           throttleTime(50),
           map(this.getSize),
-          startWith(this.getSize()),
-          share()
+          share(),
+          startWith(this.getSize())
         );
 
       return resize$;
