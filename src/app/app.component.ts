@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ScreenSizeEnum } from './screen-size.enum';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,10 @@ export class AppComponent {
   title = 'SkyengViewportSize';
   constructor(public screenSizeEnum: ScreenSizeEnum) {
   }
+
   public ngDoCheck() : void {
-
-    console.log( "ngDoCheck() :", Date.now() );
-
+    if (!environment.production) {
+      console.log( "ngDoCheck() :", Date.now() );
+    }
   }
 }
